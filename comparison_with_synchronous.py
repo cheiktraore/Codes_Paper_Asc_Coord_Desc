@@ -148,10 +148,10 @@ if __name__ == '__main__':
     plt.ylabel("$F(\\mathbf{x}^k) - F^*$")
     plt.xlabel(f"Iterations")
     plt.legend()
-    plt.savefig(f"images_test/sync_n_{n}_m_{m}_time_{duration}_step_{tau}.png",
+    plt.savefig(f"sync_image_n_{n}_m_{m}_time_{duration}_step_{tau}.png",
                 format="png", bbox_inches='tight', dpi=400)
     plt.close()
     
-    with open(f"data_test/sync_n_{n}_m_{m}_time_{duration}_step_{tau}.pickle", "wb") as f:
-        pickle.dump([fx_async, fx_sync], f, protocol=pickle.HIGHEST_PROTOCOL)
-    f.close()
+    # with open(f"sync_data_n_{n}_m_{m}_time_{duration}_step_{tau}.pickle", "wb") as f:
+    #     pickle.dump([fx_async, fx_sync], f, protocol=pickle.HIGHEST_PROTOCOL)
+    # f.close()

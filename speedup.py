@@ -24,15 +24,14 @@ plt.rcParams.update({'axes.labelsize': fontsize,
               'legend.fontsize': fontsize,
               'xtick.labelsize': fontsize - 2,
               'ytick.labelsize': fontsize - 2})
+
 n, m, s = 100, 2000, 0.01
 n_proc = 10
 n_exp = 10
 acc = 5e-2
-cond_n = -11
-mu = 0
-noise_scale = 0.01
 
 A, y, x_true = make_correlated_data(n, m, density=s, random_state=0)
+
 lbda_max = norm(A.T @ y, ord=np.inf)
 lbda = (lbda_max / 100)
 
@@ -118,12 +117,11 @@ if __name__ == '__main__':
     plt.yticks(np.array(range(n_proc))+1) # for to show all integers for 1 to 10
     plt.ylabel("Speedup")
     plt.xlabel(f"Number of processors")
-    # plt.xlabel(f"Number of processors, tau = {tau+1}, m = {m}, n = {n}")
     plt.legend()
-    plt.savefig(f"images_test/n_{n}_m_{m}_tau_{tau}_acc_{acc}_lbda_{str(lbda)[:6]}_movingseed.png",
+    plt.savefig(f"image_n_{n}_m_{m}_tau_{tau}_acc_{acc}_lbda_{str(lbda)[:6]}_movingseed.png",
                 format="png", bbox_inches='tight', dpi=400)
-
     plt.close()
-    with open(f"data_test/data_n_{n}_m_{m}_tau_{tau}_acc_{acc}_lbda_{str(lbda)[:6]}_movingseed.pickle", "wb") as f:
-        pickle.dump([list_time_all], f, protocol=pickle.HIGHEST_PROTOCOL)
-    f.close()
+
+    # with open(f"data_n_{n}_m_{m}_tau_{tau}_acc_{acc}_lbda_{str(lbda)[:6]}_movingseed.pickle", "wb") as f:
+    #     pickle.dump([list_time_all], f, protocol=pickle.HIGHEST_PROTOCOL)
+    # f.close()

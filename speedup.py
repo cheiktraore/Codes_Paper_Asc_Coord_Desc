@@ -22,7 +22,7 @@ plt.rcParams.update({'axes.labelsize': fontsize,
               'legend.fontsize': fontsize,
               'xtick.labelsize': fontsize - 2,
               'ytick.labelsize': fontsize - 2})
-n, m, s = 10, 20, 0.01
+n, m, s = 100, 2000, 0.01
 n_proc = 10
 n_exp = 10
 acc = 5e-2

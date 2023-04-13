@@ -1,4 +1,6 @@
 # Run before importing numpy to force each process running single-threaded
+# Use numpy.__config__.show() to see if you are using OpenBLAS or MKL
+# OPENBLAS_NUM_THREADS=1 or export MKL_NUM_THREADS=1
 import os
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
